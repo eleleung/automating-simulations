@@ -1,0 +1,13 @@
+#---- First run    
+    rm ttt1 ftm.put*
+
+    date >> ttt1
+
+    rm test.dat strip.dat tout.dat tinit.dat td2
+
+    ./dg2 > ftm.put1
+    ./gini2 > ftm.put2
+    ./gint2 > ftm.put3
+
+    date >> ttt1
+   

@@ -1,0 +1,6 @@
+
+
+ rm ftm.put01 ftm.put02
+ ./dr > ftm.put01
+ ./dens > ftm.put02
+

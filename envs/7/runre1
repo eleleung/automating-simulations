@@ -1,0 +1,12 @@
+#---- First run    
+    rm ttt1 ftm.put*
+
+    date >> ttt1
+
+    ./dini > ftm.put1
+    ./gini > ftm.put2
+    ./gpar > ftm.put3
+    ./gint1 > ftm.put4
+
+    date >> ttt1
+   

@@ -1,0 +1,8 @@
+45.0 60.0  ### Disk inclination angles, theta and phai (degrees)
+200.0  ### ICM velocity (km/s)
+0.0001 ### ICM density (number / cm^3)
+0.1  ### Gas mass in units of 10^10 Msun
+20.0  ### Gas disk size in units of 17.5 kpc
+4.0  ### Scale length of the gas disk
+10000.0 ### Number of gas particle
+1.0 ### 1=With Ram pressure 2=Without 

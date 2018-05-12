@@ -1,0 +1,9 @@
+1.0
+1.0  0.2   ### r_disk z_disk ST(1,0.2)
+0.39800000000000024 0.02
+50000
+3
+0.9875699999999981
+1.0 ### Outer edge of the ring
+0.0 ### Theta range (start) for shells
+10.0

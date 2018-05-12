@@ -1,0 +1,95 @@
+
+
+Project: Simulating ring galaxies with AI
+
+------
+
+Step 1  Development of a new CNN for classifying disk, ring, and shell (tail).
+
+Using many images created by us,  we try to classify each image into disk, ring,
+or shell (tail), all of which can be formed in simulations.
+
+Code:
+
+dr.f :  Generating the positions of many particles (N=> 50000) for image creation.
+        Run like this:  ./dr  .
+
+dr.para: The parameter file for dr.f
+
+The dr.para is as follows:
+
+1.0
+1.0  0.2   ### r_disk z_disk ST(1,0.2)
+0.2 0.02  ### rsca zsca ST(0.2,0.02)
+50000
+1 ### 1=Disk 2=Ring 3=Shell
+0.9 ### Inner edge of the ring
+1.0 ### Oueter edge of the ring
+0.0 ### Theta range (start) for shells
+90.0 ### Theta range (end)
+
+Please ignore the first 4 line for the exponential disk of a galaxy.
+5th determines whether the distribution is disk, or ring, or shell etc.
+Other paramters control the shaps of the ring/shell.
+      
+
+dens.f:  Converting the particles positions into 2D image (50 x 50). The input
+         file is dr.dat, and the output is 2df.dat (normalized).
+         For each mass distribution, this code will create 100 images (from
+         different viewing angles).
+
+
+drc.f: Combine different files (2df.dat.m1,  m2 etc). The output files,
+       2dft.dat (for 2D image) and 2dftn.dat (label for each image) are
+       fed into the CNN to classify the image.
+
+test CNN code (by K. B. using Keras3).
+
+test20.py :  For training the network (Input data = 2dft.dat for image,
+             2dftn.dat for label)
+test21.py :  For classification of three categories (Input data is 2df.dat).
+             test data for training is 2dft.dat.r-m4 and 2dftn.dat.r-m4 .
+
+-----> After training the data with test20.py, you generate a new particle
+       distribution and create a new image data, 2df.dat. Then you can test it.
+-----> You can develop your own code using Tensorflow.
+
+
+
+
+-----
+Step 2 Running and analyzing the simulation.
+
+
+Using test particle simulations,  we simulate the ring galaxy formation for
+a given set of model parameters (mostly for the orbit of a disk galaxy around
+a massive elliptical galaxy).
+
+
+Code:
+
+
+Shell script:  runre1  (run like this batch job:   ./runre1 &)
+
+The main code for galaxy interaction is gint1.f  This code outputs the
+particle distributions at 5-12 time steps. The data format is the same as
+dr.dat. The data file name is tout.dat
+
+After running the simulation, the tout.dat data should be converted into 
+2D image using dens.f.  In order to do so,  you need to select the data at
+the key time step, e.g., 3rd step.  You can do this using the code ddat.f.
+This ddat.f creates  dr.dat.
+
+
+ddat.f :  Selecting the position data from tout.dat. The parameter file is
+          ddat.para .
+ 
+------
+Step 3  Running multiple models to find the best model with reinforcement
+        learning (This will be done later in  March 2018).
+
+        A shell script needs to be written for (i) multiple run,  (ii) 
+        CNN classification, and (iii) reinforcement part of this project,
+
+
+

@@ -1,0 +1,11 @@
+2  ### ID selection
+5.0 ### Luminosity amplification factor for new stars
+1.0 ### Luminosity amplification factor for bulge
+1  ### Calssfication ID (not used)
+
+c        Gas =2  Bulge =4  Old stars =1 New stars =3'
+c        Bulge + old stars =5'
+c        Gas + new stars =6'
+c        all stars  =7'
+c        all comp  =8'
+

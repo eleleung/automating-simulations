@@ -1,0 +1,83 @@
+c-----   Calculations for the relative important of RPS
+
+      subroutine  ramr(nj,xj,vj,a,d,rp,gpara)
+      real xj(3, 2100000),vj(3,2100000),d(2100000)
+      real  a(3, 2100000),rp(10),vr(3),gpara(10)
+      real  costh
+      integer nj
+
+      rs1=gpara(4)-gpara(2)*0.02
+      rs2=gpara(4)+gpara(2)*0.02
+      atg_max=0.0
+      atgm=0.0
+      ise=0
+      write(6,*) 'rs1,rs2',rs1,rs2
+
+      do i=1,nj
+
+      r0=0.0
+      do k=1,3
+      r0=r0+xj(k,i)**2
+      enddo
+      r0=sqrt(r0)
+
+c-----For selection of gas particles
+      if(r0.ge.rs1.and.r0.le.rs2) then
+      ise=ise+1
+
+      costh=0.0
+      do k=1,3
+      costh=costh+vj(k,i)*rp(k)
+      enddo
+
+      do k=1,3
+      vr(k)=rp(k)-costh*vj(k,i)
+      enddo
+
+      vrt=0.0
+      do k=1,3
+      vrt=vrt+vr(k)**2
+      enddo
+      
+      rpt=0.0
+      do k=1,3
+      rpt=rpt+rp(k)**2
+      enddo
+      rpt=sqrt(rpt)
+
+c-----For gravitational force 
+
+      atg=0.0
+      do k=3,3
+      atg=atg+a(k,i)**2
+      enddo
+      atg=sqrt(atg)
+
+      atg_max=max(atg_max,atg)
+      atgm=atgm+atg
+      
+c-----For ram pressure force (d(i)=surface gas mass density)
+
+      atr=0.0
+      do k=3,3
+      atr0=vrt*rp(4)*vrt*rp(k)/rpt/d(i)
+      atr=atr+atr0**2
+      enddo
+      atr=sqrt(atr)
+
+      atrm=atrm+atr
+
+      end if
+
+      enddo
+
+c------For mean gravitational force and RPS force
+      if(ise.ne.0) then
+      atrm=atrm/real(ise)
+      atgm=atrg/real(ise)
+      rforce=atrm/atgm
+      write(6,*) 'atrm,atgm',atrm,atgm
+      write(6,*) 'rforce,atgm_max',atgm_max
+      end if
+
+       end

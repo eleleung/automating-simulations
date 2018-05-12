@@ -1,0 +1,25 @@
+
+
+c------FOR ORBIT INCLINATION
+
+      do i=1,nj
+      theta=theta1
+      phai=phai1
+      posi1=xj(1,i)
+      posi2=xj(2,i)
+      posi3=xj(3,i)
+      veli1=vj(1,i)
+      veli2=vj(2,i)
+      veli3=vj(3,i)
+      xj(1,i)=cos(phai)*cos(theta)*posi1-sin(phai)*posi2
+     &             -cos(phai)*sin(theta)*posi3
+      xj(2,i)=sin(phai)*cos(theta)*posi1+cos(phai)*posi2
+     &             -sin(phai)*sin(theta)*posi3
+      xj(3,i)=sin(theta)*posi1+cos(theta)*posi3
+      vj(1,i)=cos(phai)*cos(theta)*veli1-sin(phai)*veli2
+     &              -cos(phai)*sin(theta)*veli3
+      vj(2,i)=sin(phai)*cos(theta)*veli1+cos(phai)*veli2
+     &             -sin(phai)*sin(theta)*veli3
+      vj(3,i)=sin(theta)*veli1+cos(theta)*veli3
+      enddo
+

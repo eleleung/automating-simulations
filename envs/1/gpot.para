@@ -1,0 +1,8 @@
+6.5   ### a for Miyamoto-Nagai potential
+0.26  ### b for MN
+0.7   ### c for the Hurnquist bulge
+12.0  ### d for the logalithimic potential
+2.0  ### M_d for MN (original 10.0)
+1.0   ### M_b for the Hernquist (original 3.4)
+131.5 ### V_halo for the logalithimic potential (131.5)
+1.0   ### 1=with MW tide 2=without (isolated)

@@ -1,0 +1,21 @@
+
+gfortran gini.f -o gini
+gfortran gini2.f -o gini2
+gfortran dini.f -o dini
+gfortran dg2.f -o dg2
+gfortran gpar.f -o gpar
+gfortran gint.f -o gint
+gfortran gint1.f -o gint1
+gfortran gint2.f -o gint2
+gfortran dr.f -o dr
+gfortran dens.f -o dens
+gfortran drc.f -o drc
+gfortran ddat.f -o ddat
+gfortran ramc.f -o ramc
+gfortran kin.f -o kin
+
+
+
+
+
+

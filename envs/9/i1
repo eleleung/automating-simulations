@@ -1,0 +1,14 @@
+
+
+c------FOR ORBIT INCLINATION
+
+      theta=rpara(1)
+      phai=rpara(2)
+      posi1=rpara(3)
+      posi2=0.0
+      posi3=0.0
+      rp(1)=cos(phai)*cos(theta)*posi1-sin(phai)*posi2
+     &             -cos(phai)*sin(theta)*posi3
+      rp(2)=sin(phai)*cos(theta)*posi1+cos(phai)*posi2
+     &             -sin(phai)*sin(theta)*posi3
+      rp(3)=sin(theta)*posi1+cos(theta)*posi3

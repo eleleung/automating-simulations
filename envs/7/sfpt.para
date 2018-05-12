@@ -1,0 +1,15 @@
+1  ### number of time step in dr.dat and tout.datv
+10  ### bin number for theta direction
+10  ### bin number for phai direction
+250.0  ### vmax in units ok km/s
+2  ### 1=Center-of-mass correction 2=No correction
+12 ### Favorite time step 1
+6 ### 2
+7 ### 3 
+8 ### 4
+9 ### 5
+10 ### 6
+1 ### 7
+2 ### 8
+3 ### 9
+4 ### 10 

@@ -1,0 +1,130 @@
+
+
+Project: Simulating ring galaxies with AI
+
+-----
+
+For compiling all programs, please run the shell script "comp" (like ./comp ).
+
+-----
+
+
+
+Step 1  Development of a new CNN for classifying disk, ring, and shell (tail).
+
+Using many images created by us,  we try to classify each image into disk, ring,
+or shell (tail), all of which can be formed in simulations.
+
+Code:
+
+dr.f :  Generating the positions of many particles (N=> 50000) for image creation.
+        Run like this:  ./dr  .
+
+dr.para: The parameter file for dr.f
+
+The dr.para is as follows:
+
+1.0
+1.0  0.2   ### r_disk z_disk ST(1,0.2)
+0.2 0.02  ### rsca zsca ST(0.2,0.02)
+50000
+1 ### 1=Disk 2=Ring 3=Shell
+0.9 ### Inner edge of the ring
+1.0 ### Outer edge of the ring
+0.0 ### Theta range (start) for shells
+90.0 ### Theta range (end)
+
+Please ignore the first 4 lines for the exponential disk of a galaxy.
+5th determines whether the distribution is disk, or ring, or shell etc.
+Other parameters control the shapes of the ring/shell.
+      
+
+dens.f:  Converting the particles positions into 2D image (50 x 50). The input
+         file is dr.dat, and the output is 2df.dat (normalized).
+         For each mass distribution, this code will create 100 images (from
+         different viewing angles).
+
+
+-----> Please try to plot the 2D mass distribution (of ring etc) using this
+       2df.dat  (e.g., using a python code).
+
+drc.f: Combine different files (2df.dat.m1,  m2 etc). The output files,
+       2dft.dat (for 2D image) and 2dftn.dat (label for each image) are
+       fed into the CNN to classify the image.
+
+-----> Currently, the accuracy rate for 2dft.dat.r-m4 and 2dftn.dat.r-m4
+       data for the CNN net  is 90% (only 600 images are used). This rate
+       could be increased to almost 100%. To do so, you need to develop
+       a code by which you can combine many files into 2dft.dat and 2dftn.dat.
+       (e.g., from 2df.dat.m1, 2df.dat.m2 .... with labels etc).
+
+
+
+test CNN code (by K. B. using Keras3).
+
+test20.py :  For training the network (Input data = 2dft.dat for image,
+             2dftn.dat for label)
+test21.py :  For classification of three categories (Input data is 2df.dat).
+             test data for training is 2dft.dat.r-m4 and 2dftn.dat.r-m4 .
+
+-----> After training the data with test20.py, you generate a new particle
+       distribution and create a new image data, 2df.dat. Then you can test it.
+-----> You can develop your own code using Tensorflow.
+
+
+
+
+-----
+Step 2 Running and analyzing the simulation.
+
+
+Using test particle simulations,  we simulate the ring galaxy formation for
+a given set of model parameters (mostly for the orbit of a disk galaxy around
+a massive elliptical galaxy).
+
+
+Code:
+
+
+Shell script:  runre1  (run like this batch job:   ./runre1 &)
+
+The main code for galaxy interaction is gint1.f  This code outputs the
+particle distributions at 5-12 time steps. The data format is the same as
+dr.dat. The data file name is tout.dat and the format is as follows:
+
+
+ do ij=1,nstep
+ nj,time,tmp0
+ do i=1,nj
+ xj(k,i),k=1,3), (vj(k,i),k=1,3)
+ enddo
+ enddo
+
+nstep = total number of time step for which data is output
+nj = total number of particle
+time = time
+tmp0= mass of a particle
+xj = 3D position of each particle
+vj = 3D velcocity of each particle
+
+
+-----> Please try to plot the particle distributions using tout.dat .
+
+After running the simulation, the tout.dat data should be converted into 
+2D image using dens.f.  In order to do so,  you need to select the data at
+the key time step, e.g., 3rd step.  You can do this using the code ddat.f.
+This ddat.f creates  dr.dat.
+
+
+ddat.f :  Selecting the position data from tout.dat. The parameter file is
+          ddat.para .
+ 
+------
+Step 3  Running multiple models to find the best model with reinforcement
+        learning (This will be done later in  March 2018).
+
+        A shell script needs to be written for (i) multiple run,  (ii) 
+        CNN classification, and (iii) reinforcement part of this project,
+
+
+

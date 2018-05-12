@@ -1,0 +1,31 @@
+
+8.0 0.0 0.0  ### 3D position of a companion galaxy
+1.0721628277023356 2.352241199372644 1.5279914169196722 ### 3D velocity of a companion galaxy
+0.0 0.0 ### Disk inclination angles (theta,phai)
+8.0 0.0 0.0  ### 3D position of a companion galaxy
+1.0549223164689745 2.638810402426105 1.607635558464468 ### 3D velocity of a companion galaxy
+0.0 0.0 ### Disk inclination angles (theta,phai)
+8.0 0.0 0.0  ### 3D position of a companion galaxy
+1.0495970298338175 2.348809445518398 1.5805440626074223 ### 3D velocity of a companion galaxy
+0.0 0.0 ### Disk inclination angles (theta,phai)
+8.0 0.0 0.0  ### 3D position of a companion galaxy
+1.0852614310671092 2.2060378294275447 1.5017462151237164 ### 3D velocity of a companion galaxy
+0.0 0.0 ### Disk inclination angles (theta,phai)
+8.0 0.0 0.0  ### 3D position of a companion galaxy
+1.1009443990090908 2.2540689956199995 1.4628100012877983 ### 3D velocity of a companion galaxy
+0.0 0.0 ### Disk inclination angles (theta,phai)
+8.0 0.0 0.0  ### 3D position of a companion galaxy
+1.0528418770421475 2.3663658267961867 1.4801490284253154 ### 3D velocity of a companion galaxy
+0.0 0.0 ### Disk inclination angles (theta,phai)
+8.0 0.0 0.0  ### 3D position of a companion galaxy
+1.0427331784932359 2.4146799333618674 1.5300587900897091 ### 3D velocity of a companion galaxy
+0.0 0.0 ### Disk inclination angles (theta,phai)
+8.0 0.0 0.0  ### 3D position of a companion galaxy
+1.074123077485936 2.3842082820105466 1.5536303861764955 ### 3D velocity of a companion galaxy
+0.0 0.0 ### Disk inclination angles (theta,phai)
+8.0 0.0 0.0  ### 3D position of a companion galaxy
+1.0889689219746748 2.3346549174443716 1.5566913681445982 ### 3D velocity of a companion galaxy
+0.0 0.0 ### Disk inclination angles (theta,phai)
+8.0 0.0 0.0  ### 3D position of a companion galaxy
+1.063591819906822 2.33481621632 1.5517157329537297 ### 3D velocity of a companion galaxy
+0.0 0.0 ### Disk inclination angles (theta,phai)
